@@ -42,8 +42,10 @@ export function initDb() {
     CREATE TABLE IF NOT EXISTS alarms (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       time TEXT NOT NULL,
+      name TEXT,
       music_source TEXT,
       puzzle_type TEXT,
+      difficulty TEXT,
       active BOOLEAN DEFAULT 1
     );
 

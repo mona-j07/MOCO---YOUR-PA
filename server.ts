@@ -55,8 +55,22 @@ async function startServer() {
   });
 
   app.post('/api/alarms', (req, res) => {
-    const { time, music_source, puzzle_type } = req.body;
-    const info = db.prepare('INSERT INTO alarms (time, music_source, puzzle_type) VALUES (?, ?, ?)').run(time, music_source, puzzle_type);
+    const { time, name, music_source, puzzle_type, difficulty } = req.body;
+    const info = db.prepare('INSERT INTO alarms (time, name, music_source, puzzle_type, difficulty) VALUES (?, ?, ?, ?, ?)').run(time, name, music_source, puzzle_type, difficulty);
+    res.json({ id: info.lastInsertRowid });
+  });
+
+  // User / Onboarding
+  app.get('/api/user', (req, res) => {
+    const user = db.prepare('SELECT * FROM users LIMIT 1').get();
+    res.json(user || null);
+  });
+
+  app.post('/api/user/onboarding', (req, res) => {
+    const { name, personality, goals } = req.body;
+    // Clear existing users for this demo
+    db.prepare('DELETE FROM users').run();
+    const info = db.prepare('INSERT INTO users (name, personality, onboarding_completed) VALUES (?, ?, 1)').run(name, personality);
     res.json({ id: info.lastInsertRowid });
   });
 
