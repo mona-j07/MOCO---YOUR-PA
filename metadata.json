@@ -1,0 +1,5 @@
+{
+  "name": "MOCO – Powered by U",
+  "description": "A personalized AI assistant for productivity, discipline, and lifestyle management.",
+  "requestFramePermissions": ["microphone"]
+}
