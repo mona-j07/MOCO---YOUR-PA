@@ -14,6 +14,7 @@ export interface FinanceRecord {
   category: string;
   description: string;
   date: string;
+  type: 'income' | 'expense' | 'investment';
 }
 
 export interface Alarm {

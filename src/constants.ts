@@ -1,9 +1,11 @@
-import { LayoutDashboard, AlarmClock, ListTodo, Wallet, BarChart3, Mic } from 'lucide-react';
+import { LayoutDashboard, AlarmClock, ListTodo, Wallet, BarChart3, Bell, StickyNote } from 'lucide-react';
 
 export const NAV_ITEMS = [
   { icon: LayoutDashboard, label: 'Home', path: 'dashboard' },
   { icon: AlarmClock, label: 'Alarms', path: 'alarms' },
   { icon: ListTodo, label: 'Tasks', path: 'tasks' },
+  { icon: Bell, label: 'Reminders', path: 'reminders' },
+  { icon: StickyNote, label: 'Notes', path: 'notes' },
   { icon: Wallet, label: 'Finance', path: 'finance' },
   { icon: BarChart3, label: 'Reports', path: 'reports' },
 ];

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Trophy, Zap, TrendingUp, Brain, ChevronRight, ListTodo, AlarmClock, Clock } from 'lucide-react';
+import { Trophy, Zap, TrendingUp, Brain, ChevronRight, ListTodo, AlarmClock, Clock, Code, ExternalLink } from 'lucide-react';
 
 export default function Dashboard() {
   const [quote, setQuote] = useState('Loading motivation...');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [user, setUser] = useState<any>(null);
+  const [hackathons, setHackathons] = useState<any[]>([]);
   const [stats, setStats] = useState({
     streak: 7,
     tasksCompleted: 12,
@@ -26,6 +27,12 @@ export default function Dashboard() {
       .then(res => res.json())
       .then(data => setQuote(data.quote))
       .catch(() => setQuote('Discipline is the bridge between goals and accomplishment.'));
+
+    // Mock Hackathon Data (In a real app, this would be an AI-filtered API call)
+    setHackathons([
+      { name: 'AI Innovation Hub', date: 'Mar 15-17', prize: '$10k', match: '98%' },
+      { name: 'Web3 Future Build', date: 'Mar 22-24', prize: '$5k', match: '85%' },
+    ]);
 
     return () => clearInterval(timer);
   }, []);
@@ -136,7 +143,32 @@ export default function Dashboard() {
         </div>
 
         <div className="space-y-6">
-          <h3 className="font-black text-2xl tracking-tight">Personalized Tips</h3>
+          <div className="flex items-center justify-between">
+            <h3 className="font-black text-2xl tracking-tight">Hackathon Engine</h3>
+            <div className="flex items-center gap-2 text-emerald-400">
+              <Code className="w-4 h-4" />
+              <span className="text-[10px] font-bold uppercase tracking-widest">AI Matched</span>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-4">
+            {hackathons.map((h, i) => (
+              <div key={i} className="p-6 rounded-[2.5rem] bg-slate-900 border border-white/5 flex items-center gap-6 hover:bg-slate-800/50 transition-all cursor-pointer group">
+                <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
+                  <Trophy className="w-7 h-7 text-indigo-400 group-hover:text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <p className="font-bold text-lg">{h.name}</p>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-black">{h.match} Match</span>
+                  </div>
+                  <p className="text-sm text-slate-500">{h.date} • {h.prize} Prize Pool</p>
+                </div>
+                <ExternalLink className="w-5 h-5 text-slate-700 group-hover:text-indigo-400 transition-colors" />
+              </div>
+            ))}
+          </div>
+
           <div className="p-8 rounded-[2.5rem] bg-indigo-500/5 border border-indigo-500/20 space-y-4">
             <div className="flex items-center gap-3 text-indigo-400">
               <Brain className="w-6 h-6" />
