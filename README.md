@@ -1,20 +1,2 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/8db2ebe4-8b10-410f-bddd-9b37beb86c97
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+MOCO – Powered by U, The Master 
+MOCO – Powered by U, The Master is a personal AI productivity assistant designed to help users stay organized, disciplined, and efficient in their daily life. The application combines smart puzzle-based alarms, task and note management, voice command input, finance tracking, and productivity analytics into one platform. With features like daily routine tasks, calendar-based efficiency tracking, and financial reporting, MOCO acts as a digital companion that helps users manage their time, monitor progress, and improve overall productivity.
